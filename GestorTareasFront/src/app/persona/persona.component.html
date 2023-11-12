@@ -1,0 +1,294 @@
+
+<body>
+  <p class="img">
+    <img src="assets/Logo.png" alt="Logo">
+  </p>
+  <div id="borde">
+    <div id="header">
+      <ul class="nav">
+        <li><a href="/Categoria">Categoria</a></li>
+
+      </ul>
+    </div>
+  </div>
+  <div style="text-align:center">
+    <h1>Personas</h1>
+  </div>
+  <br>
+
+  <div class="lista">
+
+    <h2>Lista de personas</h2>
+
+    <form  [formGroup]="ListaPersonas">
+      <button type="submit" style="margin-right: 30px" class="btn btn-outline-dark">Mostrar Lista de personas</button>
+      <button  style="scroll-margin-left: 30px" class="btn btn-outline-dark">Limpiar Lista de
+        personas</button>
+
+      <br><br>
+
+      <h4>{{tituloPersonas}}</h4>
+      <table class="table table-striped">
+        <thead>
+          <th scope="col" class="text-cente">{{TablaPersonas[0]}}</th>
+          <th scope="col" class="text-cente">{{TablaPersonas[1]}}</th>
+          <th scope="col" class="text-cente">{{TablaPersonas[2]}}</th>
+          <th scope="col" class="text-cente">{{TablaPersonas[3]}}</th>
+          <th scope="col" class="text-cente">{{TablaPersonas[4]}}</th>
+          <th scope="col" class="text-cente">{{TablaPersonas[5]}}</th>
+          <th scope="col" class="text-cente">{{TablaPersonas[6]}}</th>
+          <th scope="col" class="text-cente">{{TablaPersonas[7]}}</th>
+          <th scope="col" class="text-cente">{{TablaPersonas[8]}}</th>
+          <th scope="col" class="text-cente">{{TablaPersonas[9]}}</th>
+          <th scope="col" class="text-cente">{{TablaPersonas[10]}}</th>
+          <th scope="col" class="text-cente">{{TablaPersonas[11]}}</th>
+          <th scope="col" class="text-cente">{{TablaPersonas[12]}}</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let tdoc of Personas">
+
+            <th scope="row" class="text-center">{{ tdoc.Id_Persona}}</th>
+            <th scope="row" class="text-center">{{ tdoc.Iniciales_Tip_Doc}}</th>
+            <th scope="row" class="text-center">{{ tdoc.Numero_Documento}}</th>
+            <th scope="row" class="text-center">{{ tdoc.Nombre_1}}</th>
+            <th scope="row" class="text-center">{{ tdoc.Nombre_2}}</th>
+            <th scope="row" class="text-center">{{ tdoc.Nombre_3}}</th>
+            <th scope="row" class="text-center">{{ tdoc.Apellido_1}}</th>
+            <th scope="row" class="text-center">{{ tdoc.Apellido_2}}</th>
+            <th scope="row" class="text-center">{{ tdoc.Genero}}</th>
+            <th scope="row" class="text-center">{{ tdoc.Cargo}}</th>
+            <th scope="row" class="text-center">{{ tdoc.Telefono}}</th>
+            <th scope="row" class="text-center">{{ tdoc.Correo}}</th>
+            <th scope="row" class="text-center">{{ tdoc.Nombre_Equipo}}</th>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+  <br><br>
+
+  <div class="buscar">
+    <h2>Mostrar la persona Seleccionada: </h2>
+
+    <form (ngSubmit)="buscarPersona()" [formGroup]="FiltrarPersonas">
+      Persona a Mostrar
+      <select class="dropdown" formControlName="combofiltro" >
+        <option hidden [selected]="true">Persona a Buscar</option>
+        <option *ngFor="let TipDoc of comboListarPersona" [value]="TipDoc.Id_Persona">
+          {{TipDoc.Nombre_1}} -
+          {{TipDoc.Apellido_1}}
+        </option>
+      </select>
+
+      <br><br>
+
+      <button type="submit" class="btn btn-outline-dark">Buscar Persona</button>
+    </form>
+
+    <ul>
+      <h4>{{TituloPersona}}</h4>
+
+      <table class="table table-striped">
+        <thead class="Colb">
+          <th class="b">{{TabBusPersona[0]}}</th>
+          <th class="b">{{TabBusPersona[1]}}</th>
+          <th class="b">{{TabBusPersona[2]}}</th>
+          <th class="b">{{TabBusPersona[3]}}</th>
+          <th class="b">{{TabBusPersona[4]}}</th>
+          <th class="b">{{TabBusPersona[5]}}</th>
+          <th class="b">{{TabBusPersona[6]}}</th>
+          <th class="b">{{TabBusPersona[7]}}</th>
+          <th class="b">{{TabBusPersona[8]}}</th>
+          <th class="b">{{TabBusPersona[9]}}</th>
+          <th class="b">{{TabBusPersona[10]}}</th>
+          <th class="b">{{TabBusPersona[11]}}</th>
+          <th class="b">{{TabBusPersona[12]}}</th>
+        </thead>
+        <tbody class="Filb">
+          <tr class="b" *ngFor="let TipDoc of Persona">
+            <th class="b">{{TipDoc.Id_Persona}}</th>
+            <th class="b">{{TipDoc.Iniciales_Tip_Doc}}</th>
+            <th class="b">{{TipDoc.Numero_Documento}}</th>
+            <th class="b">{{TipDoc.Nombre_1}}</th>
+            <th class="b">{{TipDoc.Nombre_2}}</th>
+            <th class="b">{{TipDoc.Nombre_3}}</th>
+            <th class="b">{{TipDoc.Apellido_1}}</th>
+            <th class="b">{{TipDoc.Apellido_2}}</th>
+            <th class="b">{{TipDoc.Genero}}</th>
+            <th class="b">{{TipDoc.Cargo}}</th>
+            <th class="b">{{TipDoc.Telefono}}</th>
+            <th class="b">{{TipDoc.Correo}}</th>
+            <th class="b">{{TipDoc.Nombre_Equipo}}</th>
+          </tr>
+        </tbody>
+      </table>
+    </ul>
+  </div>
+  <br><br><br>
+
+  <div class="crea">
+    <br><br>
+    <h2>Registrar una nueva persona</h2>
+
+    <form  [formGroup]="InsertarGPersonas">
+      Tipo de Documento
+      <select class="dropdown" formControlName="combofiltroDocumento" formControlName="textTipoDocumento">
+        <option hidden [selected]="true">Seleccione un Documento</option>
+        <option *ngFor="let doc of comboListarTipDoc" [value]="doc.Id_Tipo_Doc">
+          {{doc.Id_Tipo_Doc}} - {{doc.Tipo_Documento}}
+        </option>
+      </select>
+
+      <br><br>
+      Numero de Documento
+      <label for="NPersona"><input type="text" name="NPersona" id="NPersona" formControlName="textDocumento"></label>
+      <br><br>
+      Primer Nombre
+      <label for="N1Persona"><input type="text" name="N1Persona" id="N1Persona" formControlName="textNombre1"></label>
+      <br><br>
+      Segundo Nombre
+      <label for="N2Persona"><input type="text" name="N2Persona" id="N2Persona" formControlName="textNombre2"></label>
+      <br><br>
+      Tercer Nombre
+      <label for="N3Persona"><input type="text" name="N3Persona" id="N3Persona" formControlName="textNombre3"></label>
+
+      <br><br>
+      Primer Apellido
+      <label for="A1Persona"><input type="text" name="A1Persona" id="A1Persona" formControlName="textApellido1"></label>
+
+      <br><br>
+      Segundo Apellido
+      <label for="A2Persona"><input type="text" name="A2Persona" id="A2Persona" formControlName="textApellido2"></label>
+
+      <br><br>
+      Genero
+      <label for="GPersona"><input type="text" name="GPersona" id="GPersona" formControlName="textGenero"></label>
+
+      <br><br>
+      Cargo
+      <label for="CPersona"><input type="text" name="CPersona" id="CPersona" formControlName="textCargo"></label>
+
+      <br><br>
+      Telefono
+      <label for="TPersona"><input type="text" name="TPersona" id="TPersona" formControlName="textTelefono"></label>
+
+      <br><br>
+      Correo
+      <label for="COPersona"><input type="text" name="COPersona" id="COPersona" formControlName="textCorreo"></label>
+
+      <br><br>
+      Equipo
+      <select class="dropdown" formControlName="combofiltroEquipo">
+        formControlName="textEquipo">
+        <option hidden [selected]="true">Seleccione un Equipo</option>
+        <option *ngFor="let equ of comboListarEquipo" [value]="equ.Id_Equipo">
+          {{equ.Id_Equipo}} - {{equ.Nombre_Equipo}}
+        </option>
+      </select>
+
+      <br><br>
+      <button type="submit" class="btn btn-outline-dark">Insertar persona</button>
+    </form>
+    <br>
+
+  </div>
+  <br><br><br><br>
+
+  <div class="edit">
+    <h2>Persona a modificar</h2>
+    <br>
+    <form  [formGroup]="ActualizarAPersona">
+      persona ha modificar:
+      <select class="dropdown" formControlName="BuscarIdPersona" >
+        <option hidden [selected]="true">persona a Buscar</option>
+        <option *ngFor="let TipDoc of comboEditarPersona" [value]="TipDoc.Id_Persona">
+          {{TipDoc.Nombre_1}} -
+          {{TipDoc.Apellido_1}}
+        </option>
+      </select>
+      <br><br>
+      <button type="submit" class="btn btn-outline-dark">Buscar persona a Modificar</button>
+      <br><br>
+      <h4>{{TituloPersonaEdit}}</h4>
+      <br>
+
+
+      <li *ngFor="let Doc of MiPersonaE">
+        Nuevo Tipo de Documento
+        <select class="dropdown" formControlName="combofiltroDocumento"
+          value={{Doc.Tipo_Documento}} [(ngModel)]="Doc.Tipo_Documento" formControlName="textnuevoTipoDocumento">
+          <option hidden [selected]="true">{{Doc.Tipo_Documento}}</option>
+          <option *ngFor="let Doc of comboListarTipDoc" [value]="Doc.Id_Tipo_Doc">
+            {{Doc.Iniciales_Tip_Doc}} - {{Doc.Tipo_Documento}}
+          </option>
+        </select>
+        <br><br>
+        Nuevo Numero de Documento
+        <label for="NPersona"><input type="text" name="NPersona" id="NPersona" value={{Doc.Numero_Documento}}
+            [(ngModel)]="Doc.Numero_Documento" formControlName="textnuevoDocumento" maxlength="10"></label>
+        <br><br>
+        Nuevo Primer Nombre
+        <label for="N1Persona"><input type="text" name="N1Persona" id="N1Persona" value={{Doc.Nombre_1}}
+            [(ngModel)]="Doc.Nombre_1" formControlName="textnuevoNombre1"></label>
+        <br><br>
+        Nuevo Segundo Nombre
+        <label for="N2Persona"><input type="text" name="N2Persona" id="N2Persona" value={{Doc.Nombre_2}}
+            [(ngModel)]="Doc.Nombre_2" formControlName="textnuevoNombre2"></label>
+        <br><br>
+        Nuevo Tercer Nombre
+        <label for="N3Persona"><input type="text" name="N3Persona" id="N3Persona" value={{Doc.Nombre_3}}
+            [(ngModel)]="Doc.Nombre_3" formControlName="textnuevoNombre3"></label>
+        <br><br>
+        Nuevo Primer Apellido
+        <label for="A1Persona"><input type="text" name="A1Persona" id="A1Persona" value={{Doc.Apellido_1}}
+            [(ngModel)]="Doc.Apellido_1" formControlName="textnuevoApellido1"></label>
+        <br><br>
+        Nuevo Segundo Apellido
+        <label for="A2Persona"><input type="text" name="A2Persona" id="A2Persona" value={{Doc.Apellido_2}}
+            [(ngModel)]="Doc.Apellido_2" formControlName="textnuevoApellido2"></label>
+        <br><br>
+        Nuevo Genero
+        <label for="GPersona"><input type="text" name="GPersona" id="GPersona" value={{Doc.Genero}}
+            [(ngModel)]="Doc.Genero" formControlName="textnuevoGenero"></label>
+        <br><br>
+        Nuevo Cargo
+        <label for="CPersona"><input type="text" name="CPersona" id="CPersona" value={{Doc.Cargo}}
+            [(ngModel)]="Doc.Cargo" formControlName="textnuevoCargo"></label>
+        <br><br>
+        Nuevo Telefono
+        <label for="TPersona"><input type="text" name="TPersona" id="TPersona" value={{Doc.Telefono}}
+            [(ngModel)]="Doc.Telefono" formControlName="textnuevoTelefono" maxlength="10"></label>
+        <br><br>
+        Nuevo Correo
+        <label for="COPersona"><input type="text" name="COPersona" id="COPersona" value={{Doc.Correo}}
+            [(ngModel)]="Doc.Correo" formControlName="textnuevoCorreo"></label>
+        <br><br>
+
+        Nuevo Equipo
+        <select class="dropdown" formControlName="combofiltroEquipo"  value={{Doc.Id_Equipo}}
+          [(ngModel)]="Doc.Id_Equipo" formControlName="textnuevoEquipo">
+          <option hidden [selected]="true">{{Doc.Nombre_Equipo}}</option>
+          <option *ngFor="let equ of comboListarEquipo" [value]="equ.Id_Equipo">
+            {{equ.Id_Equipo}} - {{equ.Nombre_Equipo}}
+          </option>
+        </select>
+        <br>
+
+      </li>
+      <br>
+      <button  class="btn btn-outline-dark">Actualizar</button>
+    </form>
+    <br>
+  </div>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
